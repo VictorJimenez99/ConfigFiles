@@ -1,0 +1,69 @@
+<!--This configuration file works for any fxml project
+    it should be in the root of any project that wants to 
+    create a bundled executable with jlink 
+    WARNING: this is an aid for your projects you shouldn't just
+    replace yours with mine but the important attributes to create the executable
+    are the 
+    <name></name>
+    <jlinkImageName></jlinkImageName>
+    <launcher></launcher>
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>equipo.comp</groupId>
+    <artifactId>Proyecto</artifactId>
+    <version>1.0.0</version>
+
+    <name>Proyecto</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+        <maven.compiler.release>15</maven.compiler.release>
+        <javafx.version>15</javafx.version>
+        <javafx.maven.plugin.version>0.0.6</javafx.maven.plugin.version>
+    </properties>
+
+    <organization>
+        <name>Escom</name>
+    </organization>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                    <source>14</source>
+                    <target>14</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx.maven.plugin.version}</version>
+                <configuration>
+                    <mainClass>equipo.comp.App</mainClass>
+                    <jlinkImageName>Proyecto</jlinkImageName>
+                    <launcher>launcher</launcher>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
