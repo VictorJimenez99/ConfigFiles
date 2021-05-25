@@ -74,4 +74,5 @@ init:
 		echo "  target folder created"; \
 	fi;
 	@echo "Finished"
-	@echo "type make build_and_run to test your program"
+	@echo "Edit the Makefile to change the name and configuration of your project"
+	@echo "Type make build_and_run to test your program"
