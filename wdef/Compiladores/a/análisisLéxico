@@ -1,0 +1,66 @@
+
+# Introducción
+
+Para llevar a cabo el análisis léxico requerimos
+especificar clases léxicas; las cuales serán especificadas
+por medio de expresiones regulares. (regex)
+
+# Regex
+
+Si _sigma_ es una alfabeto entonces y a, b _epsilon_ _sigma_
+1) a es una expresión regular que define al lenguaje 
+L = {a}
+a =/= {a}
+
+2) a|b es una exrpresión regular que define al lenguaje 
+L = {a,b} = {a} U {b}
+
+3) a+ es una expresión regular que define al lenguaje 
+L = {a}+ = {a, aa, aaa,...}
+
+4) a* es una regex que define al lenguaje 
+L = {a}* = {_epsilon_ , a, aa, aaa, ...}
+
+5) ab es una regex que define al lenguaje 
+L = {ab} 
+
+6) a? es una regex que define al lenguaje
+L = {_epsilon_, a}
+
+
+Si e1 y e2 son expresiones regulares entonces: 
+
+1) e1|e2 es una regex que define al lenguaje 
+L = L1 U L2 donde L1 es el lenguaje asiciado a e1
+y L2 es el lenguaje asociado a e2
+
+
+2) e1e2 es una regex que define al lenguaje 
+L = L1L2
+
+
+3) e1+ es una regex que define al lenguaje
+L = L1+ = L1 U L1L1 U L1L1L1...
+
+4) e1* es una regex que define al lenguaje
+L = L1*
+
+5) e1? es una regex que define al lenguaje
+L = {_epsilon_} U L1
+
+# Ejemplos
+
+sea _sigma_ = {a, b, c, 0, 1}
+1) a|b|c = ( a | b ) | c =   { a, b } U { c } = { a, b, c }
+
+
+2) a(b|c)1? = {a}{b,c}{_epsilon_, 1} = 
+{ab, ac, ab1, ac1}
+
+
+
+
+
+
+
+

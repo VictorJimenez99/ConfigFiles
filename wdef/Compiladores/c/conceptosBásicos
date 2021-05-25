@@ -1,0 +1,41 @@
+
+# Alfabeto 
+
+Conjunto finito no vacio de símbolos. Ejemplo de estos
+son:
+∑ = {0,1}, ∑ = {a, b, c, ... , z}
+
+# Cadena
+
+Es una secuencia de cero o más símbolos de un alfabeto.
+
+Ejemplos: 
+ ∑ = {0, 1}, dado este alfabeto algunas cadenas son:
+ σ = 0, σ = 1, σ = 01, σ = 001011010110
+
+# Cadena vacía
+Se define como ε como aquella cadena que cumple lo 
+siguiente: 
+
+1. ε * σ = σ
+2. σ * ε = ε * σ = σ
+3. |ε| = 0
+
+# Operaciones con alfabetos 
+
+Sean A y B dos alfabetos se define 
+
+1. A U B = {_alpha_ | _alpha_ ϵ A o _alpha_ ϵ B}
+2. 
+
+# Tamaño de una cadena
+
+Al concatenar n veces el alfabeto A entonces se 
+obtendran todas las cadenas de tamaño n que se 
+pueden formar con el alfabeto A
+
+-La cerradura de un alfabeto nos dará como resultado
+un conjunto de cadenas.
+
+
+

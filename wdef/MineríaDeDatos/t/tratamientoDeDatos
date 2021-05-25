@@ -1,0 +1,167 @@
+# Apuntes Video 2 Tratamiento de Datos
+
+
+Muchas veces en el proceso de Knowledge Discovery in Databases(KDD),
+los datos obtenidos estan incompletos, no están procesados, o tienen
+abnormalidades.
+Ejemplos de estos casos son:
+
+	Campos Redundantes.
+	Valores Faltantes.
+	Datos Atípicos.
+	Valores inconcistentes.
+
+
+Para poder ingresar todos estos valores al proceso(KDD) es necesario
+transformalos a algo más acorde a lo establecido con lo que se quiera
+adquirir.
+Cabe mencionar que estas transformaciones, no intentan retorcer la
+infomación para llegar a una conclusión favorable para el investigador,
+más bien intentan limpiar aquellos valores que se saben causan ruido
+al momento de aplicar metodos para minería de datos.  
+
+Por ejemplo:
+si se tienen los siguientes datos 
+	
++-------+-------+
+|  ID	| Peso	|
++-------+-------+
+|  0	| 80.4	|
++-------+-------+
+|  1	| 70.2	|
++-------+-------+
+|  2	| 64.2	|
++-------+-------+
+|  3    | 72.7	|
++-------+-------+
+|  4 	| 82.3	|
++-------+-------+
+|  5	| 820.9	|
++-------+-------+
+|  6  	| 75.5	|
++-------+-------+
+|  7    | NULL	|
++-------+-------+
+	 	
+Se nota, en una primera inspección, que el registro
+[7] cumple con la definición de un dato faltante, o 
+no definido. En una impresión más profunda, también
+se puede observar que el quinto registro tuvo un error
+humano en su captura, y en vez de poner 82.9 presiono un
+0, cuasando que los datos recopilados sean incorrectos.
+
+Este proceso de limpiado de datos, es sumamente importante,
+tanto que puede acaparar mpas de la mitad del tiempo de todo
+el proceso de KDD.
+
+En las secciones siguientes se tratan algunas de las situaciones
+más comunes en tratamiento de datos.
+
+
+# Valores Faltantes
+
+Este es uno de los casos más concurrentes en el tratamiento de 
+datos, y se podría decir que existe una relación entre en número
+de campos que contiene una base de datos, y el número de registros
+faltantes de la misma.
+
+Uno de los metodos más comunes(y no por eso el mejor) es deshacerse
+de los registros que contengan datos fantantes. Es de suma 
+importancia valorar qué es lo que se está borrando, puede 
+ser que de por sí el valor sea un campo opcional en la base de datos
+ o que sea un valor del que más
+del 50% de los registros carezca.
+
+A continuación se presentan algunas opciones de lo que se puede 
+hacer con estos valores fantantes:
+
+	1.-Remplazarlos con una constante.
+	2.-Remplazarlos por la media de los datos.
+	3.-Remplazarlos por un valor aleatorio.
+
+
+# Datos Atípicos
+
+Por sus  caracteristicas de estos valores existen dos maneras muy
+sencillas de identificarlos.
+
+	1.-Método Analítico.
+		El cual consiste en revisar el concentrado de datos
+		por valores incoherentes o inconsistentes.En el libro 
+		de Chantal(Data Mining & Predictive Analytics 2015)
+		se propone el siguiente ejemplo.
+
+		+-------+-------+	
+		| Brand	|  Freq	|
+		+-------+-------+	
+		|USA    |    1  |
+		|France |    1  |
+		|US     |  156  |
+		|Europe |   46  |
+		|Japan  |   51  |
+		+-------+-------+	
+
+		NOTAS DEL MISMO AUTOR
+		"...Sin embargo, dos de las clases, USA" y "France"
+		 tienen un conteo de automovil cada una de ellas. Lo que
+		 claramente está pasando es que dos de los registros fueron
+		 clasificados inconsistentemente..."
+		
+		Esto tiene origen en que en que USA es equivalente a US y
+		Francia pertenece a Europa, por lo que estos valores pueden
+		ser ignorados o agregados al conteo de su respectivo conjunto
+
+		
+	2.-Método Gráfico
+		
+		Este método consiste en visualizar la grafica de los datos e
+		identificar aquellos valores que no son consistentes
+		con el resto
+
+		e.g.
+
+		  100 +--------------------------------------------------------------------+   
+		      |           +          +           +          +           +          |   
+		      |                                                  ***   peso.csv    |   
+		   95 |-+                                                * *             +-|   
+		      |                                                  * *               |   
+		      |                                                  * *               |   
+		   90 |-+                                                * *             +-|   
+		      |                                                  * *               |   
+		      |                                                  * *               |   
+		   85 |-+                                                * *             +-|   
+		      |                                                  * *               |   
+		   80 |-+                                                * *             +-|   
+		      |                                                  * *               |   
+		      |                                      ***         * *               |   
+		   75 |-+                                    * *         * *             +-|   
+		      |                                 **   * *         * *   **   ***    |   
+		      |                     ***         **   * *         * *   **   * *    |   
+		   70 |-+             ***   * *         **   * *   ***   * *   **   * *  +-|   
+		      |               * *   * *   ***   **   * *   * *   * *   **   * *    |   
+		      |          **   * *   * *   * *   **   * *   * *   * *   **   * *    |   
+		   65 +--------------------------------------------------------------------+   
+		     -2    -1     0    1     2     3     4    5     6     7     8    9     10  
+										       
+
+
+
+		Se puede observar que el dato [7] está muy desproporcionado con respecto a
+		los otros 6, y con ese simple analisis tenemos suficiente información para 
+		asegurar que el dato siete es un dato atípico. 
+
+
+
+# Instrumentos de Medición
+
+Cada que se habla de graficas y datos númericos, se hace incapie en las medidas típicas
+que permiten describir los datos de forma general. Para recalcar esto, se utilizarán las 
+siguientes definiciones.
+	Sea n el tamaño de la muestra, es decir el número total de registros.
+	y X el conjunto de registros.
+	entonces 
+	
+					n = |X|
+	
+	La Media entonces se definirá como x̄("x-barra")
+		

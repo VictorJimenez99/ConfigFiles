@@ -1,0 +1,33 @@
+
+
+# ¿Qué es?
+
+Es un programa que "traduce" entre un lenguaje fuente
+y otro, pero tienen la caracteristica que
+tanto la entrada como la salida tienen que ser
+equivalentes.
+
+# Arquitectura de un Compilador
+
+- Análisis léxico
+Identifica a que clase léxica pertenece cada cadena 
+de la entrada
+Se utilizan expresiones regulares.
+Genera Tokens
+
+- Análisis Sintáctico
+Se utilizan Gramáticas libres del contexto.
+- Análisis Semántico
+En esta estapa  se verifica que las expresiones
+analizadas tengan sentido en el leguanje fuente
+
+- Generación de Código Intermedio
+Se traduce en programa fuente a un programa
+equivalente considerando una máquina virtual.
+
+- Optimización de Código
+
+- Generación de Código Objeto
+
+- Programa Objeto
+

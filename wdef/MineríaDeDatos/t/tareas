@@ -1,0 +1,67 @@
+
+# Índice
+- Tareas de la Minería de Datos
+- Descipción
+- Predicción
+- Clasificación
+- Clustering 
+- Asociación
+
+# Tareas de la Minería de Datos
+
+Las principales tareas de la materia son 
+
+1. Descripción
+2. Estimación
+3. Predicción
+4. Clasificación
+5. Clustering 
+6. Asociación
+
+
+# Descipción
+
+Como su nombre lo indica la descripción ayuda al analista 
+a describir e identificar patrones y tendencias dentro 
+de los datos.
+
+
+# Estimación
+
+En esta tarea la Minería intenta "estimar" un valor númerico a través
+del resto de las variables. Para esta tarea se necesita primero analizar
+un conjunto de datos los cuales estén completos tanto con la variable a 
+predecir así como el resto de ellas.
+
+Un ejemplo de este tipo de tareas se puede observar en los modelos de 
+regresión linear. Donde a través de variables numéricas se puede tener
+una estimación de un resto del resto de valores.
+
+
+# Predicción
+
+A primera vista esta tarea es similar a la Estimación, sin embargo la 
+diferencia radica en que los resultados de la tarea serán a futuro. Aún 
+así la mayoría de los métodos y técnicas utilizadas por la tarea de 
+estimación también son utilizados por la tarea de Predicción
+
+# Clasificación
+
+Muy similar a Estimación exepto que la variable objetivo es categórica en
+vez de numérica.
+
+# Clustering 
+
+Se refiere al agrupamiento de observaciones o casos en conjuntos de 
+objetos similares. En este caso difiere de Clasificación en que no hay
+una variable objetivo simplemente  los algoritmos intentan segmentar
+todo el conjunto de datos en grupos y subgrupos simialres.
+
+# Asociación
+
+En este tipo de análisis la tarea principal es encontrar los atributos
+y variables que se relacionan entre sí. más que predecir los datos, estos
+algoritmos intentan describir los metadatos. Uno de los algoritmos más
+famosos de esta tarea es el de la canasta de supermercado, en el que
+se intenta predecir: "si el cliente compra A también comprará B"
+

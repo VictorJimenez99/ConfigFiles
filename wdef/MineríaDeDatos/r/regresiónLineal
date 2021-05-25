@@ -1,0 +1,227 @@
+# Índice
+
+- Introducción
+- Tipos de Relaciones
+- Referencias
+- Diagramas de Dispersión
+- Estimación de la Recta de Regresión
+- Cómo Ajustar los Valores de la Recta
+- Recta con Mejor Ajuste
+
+# Introducción
+
+	Para hacer predicciones de sucesos futuros, se tienen que tomar en cuenta
+las relaciones entre lo que se conoce y lo que se quiere conocer. Los análisis de 
+regresión y correlación nos ayudan a determinar y/o describir la relación entre
+un par de variables. 
+
+
+	El término Regresión es un término estadístico y fue acuñado en el año 1877,
+cuando se llevó a cabo un estudio de la relación entre la altura de padres e hijos.
+
+# Tipos de Relaciones
+
+	En el argot del análisis de regresión, se les conoce como variables 
+"independientes", a aquellas que ya conocemos, y en contraste, se le conoce como
+variables "dependientes" a las que se intenta predecir.
+
+	Por ejemplo si se quisiera saber qué temperatura tiene el área circundante,
+a un bosque. Podemos definir, la cantidad de árboles como la variable dependiente.
+y la temperatura, como la independiente.
+
+
+  32 +---------------------------------------------------------------------+   
+     |   *****+        +       +        +        +        +       +        |   
+  31 |-+      ***                                       "data.dat" *******-|   
+     |           *                                                         |   
+  30 |-+          ****                                                   +-|   
+     |                *                                                    |   
+     |                 ******                                              |   
+  29 |-+                     **                                          +-|   
+     |                                                                     |   
+  28 |-+                       ******                                    +-|   
+     |                               *                                     |   
+  27 |-+                              *                                  +-|   
+     |                                 *                                   |   
+  26 |-+                                *********                        +-|   
+     |                                           ****                      |   
+     |                                               *********             |   
+  25 |-+                                                      *********  +-|   
+     |                                                                 *** |   
+  24 |-+                                                                 +*|   
+     |        +        +       +        +        +        +       +        |   
+  23 +---------------------------------------------------------------------+   
+     0        2        4       6        8        10       12      14       16 
+
+NOTA 1: Datos generados para esta gráfica, no tienen valor ni respaldo alguno.
+NOTA 2: x = número de cientos de árboles. 
+NOTA 3: y = grados centígrados.
+
+	El resultado del análisis de regresión, a menudo será más preciso si 
+se utilizan más relaciones entre las variables independientes y la variable 
+que se requiere predecir.
+
+--------------------------------------------------------------------------------
+
+	Relación Directa:
+		  Si la variable independiente aumenta, entonces la variable
+		independiente lo hará.
+	Relación Inversa:
+		  Si la variable independiente aumenta, entonces la variable
+		independiente disminuye.
+
+	En el ejemplo de los Árboles, existe una "Relación Inversa", entre 
+la cantidad de árboles que existen en el bosque, y temperatura del ambiente
+de alrededor. 
+
+
+ 
+
+# Diagramas de Dispersión
+
+Para determinar si existe una relación entre dos variables lo primero que se tiene
+que examinar es la gráfica de datos conocidos(o diagrama de dispersión) 
+
+                                     Relaciones                                
+                                                                               
+     3.8 +-----------------------------------------------------------------+   
+         |        +         +        +         +        +         +        |   
+     3.6 |-+                                            "disp.csv"    .  +-|   
+         |                                                                 |   
+     3.4 |-+                                            .                +-|   
+         |                                                                 |   
+     3.2 |-+                                 .                           +-|   
+         |                                        .                        |   
+       3 |-+                                                             +-|   
+     2.8 |-+                                                             +-|   
+         |                                                                 |   
+     2.6 |-+                       .                                     +-|   
+         |                                                                 |   
+     2.4 |-+                                                             +-|   
+         |     .                                                           |   
+     2.2 |-+              .                                              +-|   
+         |        +         +        +         +        +         +        |   
+       2 +-----------------------------------------------------------------+   
+         60       65        70       75        80       85        90       95  
+
+                                     Puntuacion                                
+                                                  
+NOTA 1: Información tomada de la referencia [1] página 512, Tabla 12-1 
+
+Con un diagrama de dispersión se pueden identificar patrones entre las variables
+y visualizar las relaciones que existen entre ellas. Una vez definida la existencia
+de una relación, es importante "ajustar" (o trazar una linea) para representar la
+relación.
+
+La dirección de la curva puede indicar si la relación es directa o inversa.   
+
+
+# Estimación de la Recta de Regresión
+
+La Ecuación de la liena recta relaciona una valiable dependiente, con su contraparte
+su forma(Y = aX+b) representa que un cambio en la variable independiente (X) generará
+un cambio en la variable dependiente(Y).
+
+¿Cómo encontrar las constantes numéricas a y b?
+
+Se usa la ecuación de la pendiente de una recta. La cual está definida por
+
+	a = (y2-y1) / (x2-x1)
+
+para b podemos evaluar x = 0 o una vez obtenida la pendiente se puede realizar un 
+despeje.
+
+# Cómo ajustar los valores de la recta
+
+Método de los mínimos cuadrados
+	  Se dice que la linea tiene un buen ajuste si minimiza el error entre los
+	los puntos estimados de la reacta
+
+	
+			Ŷ = aX + b
+
+donde Ŷ simboliza los valores individuales de los puntos estimados
+
+Suponganse los valores 
+	+-------+-------+
+	|   X	|   Y	|
+	+-------+-------+
+	|   0	|   7	|
+	|   4	|   8	|
+	|   8   |   1	|
+	|  12   |   6 	|
+	+-------+-------+
+
+
+Se pueden ajustar los valores Ŷ a:
+
+
+	+-------+-------+-------+-----------------------+
+	|   X	|   Y	|   Ŷ	|     Error | Y-Ŷ |	|
+	+-------+-------+-------+-----------------------+
+	|   0	|   7	|   7	|	|7-7| = 0	|
+	|   4	|   8	|   6	|	|8-6| = 2	|
+	|   8   |   1	|   5	|	|1-5| = 4	|
+	|  12   |   6 	|   4	|       |6-4| = 2	|
+	+-------+-------+-------+-----------------------+
+				|	∑| Y-Ŷ | = 8	| <---Error Absoluto Total
+				+-----------------------+
+
+
+El criterio del Error absoluto es una forma eficiente de ajustar, ya que toma en
+consideración los valores positivos y negativos. Sin embargo la maginitud del error
+no es considerada. 
+
+Por lo que el al considerar la magnitud, elevando al cuadrado la diferencia podemos
+diferenciar qué ajuste, de los muchos que realicemos, sea el que contiene menos error.
+
+
+
+# Recta con Mejor Ajuste
+
+Hasta ahora  todos los métodos vistos anteriormente se basan en ajustes matemáticos
+sencillos.
+
+Pero para encontrar la recta con mejor ajuste se ha creado la estimación:
+
+Para un ajuste de una recta Y = ax + b
+
+			a = ( ∑XY - nX̄Ȳ ) / (∑X² - nX̄²)
+
+
+donde:
+
+	a = Pendiente de la recta.
+	X = Valores de la variable independiente.
+	Y = Valores de la variable dependiente.
+	X̄ = Media de los valores independientes.
+	Ȳ = Media de los valores dependientes.
+	n = Número de muestras X-Y.
+
+
+
+	b = Ȳ - aX̄
+
+
+# Error estándar de la estimación
+
+La confiabilidad de la estimación nos da la certeza de que tan certera es nuestra
+ecuación de ajuste para predecir los datos. 
+La fórmula de del error estándar de la estimación tiene como objetivo
+medir la disperción o la variablilidad de los valores con respecto a la recta.
+
+"Error estándar de la estimación" = S_e = sqrt( (∑ (Y-Ŷ)²)/(n-2) )
+
+donde 
+
+	Y = valores de la variable dependiente
+	Ŷ = Valores estimados de la ecuación
+	n = número de puntos utilizados para ajustar la gráfica de regresión
+
+Mientras más grande sea el valor que nos dé este error, más grande será la dispersión
+de puntos al rededor de la linea. Por lo que un error muy cercano a cero significa que
+la estimación es correcta.
+
+# Referencias
+[1]Levin, R. and Rubin, D., 1998. Statistics For Management. Upper Saddle River, N.J.: Prentice Hall.
+

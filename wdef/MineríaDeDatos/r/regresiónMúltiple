@@ -1,0 +1,149 @@
+# Índice
+
+- Introducción
+- Encontrar la Ecuación
+- Ecuación de estimación de regresión múltiple
+- Error Estándar de la Estimación
+- Referencias
+
+
+
+
+# Introducción
+
+  Al proceso de utilizar más de una variable, independiente para la aumentar el nivel
+de certeza de una predicción se le conoce como regresión múltiple y correlación. La 
+ventaja principal sobre la (regresión) simple es que se puede hacer una estimación 
+con mayor precisión ya que se está determinando un resutado con base en varias variables
+independientes.
+
+  De la misma forma que en la regresión simple, la múltiple consta de 3 pasos
+
+	1.- Describir la ecuación de regresión múltiple.
+	2.- Examinar el error estándar de la regresión.
+	3.- verificar que tan bien predice el modelo.
+
+  NOTA: Lista obtenida de: [1] página 566.
+
+
+Otra ventaja importante de la regresión múltiple  es que permite ajustar los datos, no
+solo para generar rectas, sino que también se pueden ajustar datos a para que sean des-
+critos por curvas, lo que se traduce en una exactitud mayor al momento de la predicción
+de datos.
+ 
+
+# Encontrar la Ecuación
+
+Dado que se están utilizando diferentes variables independientes, se utiliza el valor
+subscrito, para diferenciar a las variables. 
+e.g.
+	X0 - Variable independiente 0.
+	X1 - Variable independiente 1.
+	Xn - Variable independiente n.
+
+
+
+	+-------+---------------+---------------+-------+
+	|  ID	|  1er Parcial	|  2do Parcial	| Final	|
+	+-------+---------------+---------------+-------+
+	|  000	|      7.5	|      4.5	|  6.8	|
+	|  001  |      5.9	|      8.1	|  7.6	|
+	|  002	|      8.3	|      9.3	|  9.0	|
+	|  003  |      6.9	|      9.1	|  8.4	|
+	|  004	|      4.3	|      9.1	|  7.4	|
+	|  005	|      6.9	|      6.9	|  7.5	|
+	|  006	|      7.0	|      8.3	|  8.1	|
+	|  007	|      8.3	|      7.2	|  8.2	|
+	|  008	|      9.1	|      8.9	|  9.2	|
+	|  009	|      6.4	|      5.8	|  6.9	|
+	+-------+---------------+---------------+-------+
+
+TABLA 2.1
+
+En este caso:
+	X1 = {"1er Parcial"}
+	X2 = {"2do Parcial"}
+	Y  = {"Final"}
+
+
+Al igual que en regresión simple, se utiliza el símbolo Ŷ para representar la estimación
+de Y al ajustar con la linea de regresión.
+
+  Ecuación de estimación para 3 variables(dos independientes, una dependiente)
+	
+	Ŷ = a1X1 + a2X2 + b
+
+Si la ecuación que rige el comportamiento de dos variables proyecta una recta, la ecua-
+ción que asocia a 3 variables proyectará un plano en un espacio tridimensional. Por 
+tanto el encontrar las literales a1, a2, y b serán la descripción del plano que mejor
+ajuste a las variables tal que el error absoluto sea mínimo.
+
+
+	Ecuaciones Normales
+	
+	∑Y   = nb     + a1∑X1	+	a2∑X2
+	∑X1Y = b∑X1   +	a1∑X1²  +	a2∑X1X2
+	∑X2Y = b∑X2   +	a1∑X1X2	+	a2∑X2²
+
+
+En el ejemplo propuesto en la tabla 2.1 ...
+
+	79.12    = 10  b +   70.60 a1 +   77.2  a2
+	565.02   = 70.6b +   515.32a1 +   544.23a2
+	619.756	 = 77.2b +   544.23a1 +   619.16a2
+
+si se resuelven estas ecuaciones entonces
+
+	a1 = 2/5 = .4
+	a2 = 2/5 = .4
+	b  = 2
+
+
+# Ecuación de estimación de regresión múltiple
+
+Como su nombre lo indica esta no es más que una estimación, sin embargo es muy
+util al momento de tener k variables independientes. i.e: X1,X2,X3...,Xk
+
+
+Ecuación de estimación de regresión múltiple.
+
+	Ŷ = b + a1X1 + a2X2 + a3X3 + a4X4.... akXk
+
+
+Dado que el proccedimiento para sacar estos coeficientes, es demasiado com-
+plicado, toda la bibliografía prefiere utilizar software que ya tiene in-
+cluidas estas funciones.
+
+en el caso del lenguaje de programación R se presenta un ejemplo
+
+
+RegresionM <- lm(eq = Y~X1+X2+X3,datos)
+summary(RegresionM)
+
+
+Esto para 3 variables independientes (X1,X2,X3) 
+
+
+
+# Error Estándar de la Estimación
+
+Este error es la certeza de la estimación, se pretende al fin y al cabo, que
+este valor sea mínimo, para así asegunrar que la solución a los coeficientes
+fue correcta.
+se mide con:
+
+	Se =  √( ( ∑( Y-Ŷ )² ) / (n-k-1) )
+ 
+donde:
+	Y = valores de la variable dependiente.
+	Ŷ = valores predecidos de la variable dependiente.
+	n = número de muestras.
+	k = número de variables independientes.
+
+
+
+# Referencias
+
+[1]Levin, R. and Rubin, D., 1998. Statistics For Management. Upper Saddle River, N.J.: Prentice Hall.
+
+
