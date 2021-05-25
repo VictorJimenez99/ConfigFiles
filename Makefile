@@ -11,6 +11,11 @@
 # according to your needs, and as you can see 
 # the src/main.c is mandatory.
 
+# if you have a new folder you can type make init 
+# to create the folders necessary to execute this file
+
+.PHONY: clean run init build_and_run
+
 CC=gcc
 PROJECT=project_name
 CFLAGS=-Wall
@@ -32,14 +37,41 @@ target/objects/%.o: src/%.c
 	$(CC) -c $< $(CFLAGS) $(LFLAGS) -o $@
 
 
-.PHONY: clean run
-
 
 clean:
 	rm -f target/objects/*.o target/$(PROJECT)
 
-run:
+build_and_run:clean release
 	@echo "Runing: $(PROJECT)" && \
 	./target/$(PROJECT) && \
 	echo "\nFinished"
 
+
+
+run: all
+	@echo "Runing: $(PROJECT)" && \
+	./target/$(PROJECT) && \
+	echo "\nFinished"
+
+init:
+	@echo "Creating folder structure"
+	@echo "src dir"
+	@if [ -d src ]; then \
+		echo "  Folder src already exists";\
+	else \
+		mkdir src && \
+		echo "  src folder created" && \
+		touch src/main.c &&\
+		echo "#include<stdio.h>\n\n">>src/main.c && \
+		echo "int main(int argc, char **argv)" >>src/main.c && \
+		echo "{\n    printf(\"Hello World\");\n}" >> src/main.c; \
+	fi; 
+	@echo "target dir"
+	@if [ -d target ]; then \
+		echo "  Target folder already exists"; \
+	else \
+		mkdir target && mkdir target/objects && \
+		echo "  target folder created"; \
+	fi;
+	@echo "Finished"
+	@echo "type make build_and_run to test your program"
