@@ -86,4 +86,4 @@ init:
 	fi;
 	@echo "Finished"
 	@echo "Edit the Makefile to change the name and configuration of your project"
-	@echo "Type make build_and_run to test your program"
+	@echo "Type make cbr to test your program (clean build and run)"
