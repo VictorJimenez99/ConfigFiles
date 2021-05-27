@@ -62,7 +62,7 @@ init:
 		mkdir src && \
 		echo "  src folder created" && \
 		touch src/main.c &&\
-		echo "#include<stdio.h>\n\n">>src/main.c && \
+		echo "#include <stdio.h>\n">>src/main.c && \
 		echo "int main(int argc, char **argv)" >>src/main.c && \
 		echo "{\n    printf(\"Hello World\");\n}" >> src/main.c; \
 	fi; 
