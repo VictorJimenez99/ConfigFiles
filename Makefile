@@ -40,9 +40,9 @@ release: target/$(PROJECT)
 
 
 
-target/$(PROJECT): $(OBJS) $(REC_OBJ) $(SRC_FILES) src/main.c 
+target/$(PROJECT): $(OBJS) $(REC_OBJ) src/main.c 
 	@echo -n "\033[0;32mCompiling..."
-	@$(CC) $^ -o $@ $(CFLAGS) $(LFLAGS)
+	@$(CC)  -o $@ $(CFLAGS) $(LFLAGS) $^
 	@echo "$(tput setaf 2)Done...\033[0m"
 
 $(OBJS): $(SRC_FILES)
