@@ -14,14 +14,24 @@
 # if you have a new folder you can type make init 
 # to create the folders necessary to execute this file
 
-.PHONY: clean run init build_and_run
+# As of today this file has one level recursion, which means
+# that you can use subforlders in src but just one level deep 
+
+.PHONY: clean run init cbr
 
 CC=gcc
 PROJECT=project_name
 CFLAGS=-Wall
 LFLAGS=
-SRC_FILES = $(filter-out src/main.c, $(wildcard src/*.c))
-OBJS := $(patsubst src/%.c, target/objects/%.o ,$(SRC_FILES))
+
+BASE_FILES = $(filter-out src/main.c, $(wildcard src/*.c)) 
+ONE_LVL_REC = $(wildcard src/*/*.c)
+
+SRC_FILES = $(BASE_FILES) $(ONE_LVL_REC)
+
+BASE_OBJS := $(patsubst src/%.c, target/objects/%.o ,$(BASE_FILES))
+REC_OBJ := $(patsubst %.c, target/objects/%.o, $(notdir $(ONE_LVL_REC)))
+OBJS := $(BASE_OBJS) $(REC_OBJ)
 
 all: target/$(PROJECT)
 
@@ -29,19 +39,20 @@ release: CFLAGS=-Wall -O2
 release: target/$(PROJECT)
 
 
-target/$(PROJECT): $(OBJS) src/main.c
-	$(CC) $^ -o $@ $(CFLAGS) $(LFLAGS)
 
+target/$(PROJECT): $(OBJS) $(REC_OBJ) $(SRC_FILES) src/main.c 
+	@echo -n "\033[0;32mCompiling..."
+	@$(CC) $^ -o $@ $(CFLAGS) $(LFLAGS)
+	@echo "$(tput setaf 2)Done...\033[0m"
 
-target/objects/%.o: src/%.c
+$(OBJS): $(SRC_FILES)
 	$(CC) -c $< $(CFLAGS) $(LFLAGS) -o $@
-
 
 
 clean:
 	rm -f target/objects/*.o target/$(PROJECT)
 
-build_and_run:clean release
+cbr:clean release
 	@echo "Runing: $(PROJECT)" && \
 	./target/$(PROJECT) && \
 	echo "\nFinished"
@@ -64,7 +75,7 @@ init:
 		touch src/main.c &&\
 		echo "#include <stdio.h>\n">>src/main.c && \
 		echo "int main(int argc, char **argv)" >>src/main.c && \
-		echo "{\n    printf(\"Hello World\");\n}" >> src/main.c; \
+		echo -n "{\n    printf(\"Hello World\");\n}" >> src/main.c; \
 	fi; 
 	@echo "target dir"
 	@if [ -d target ]; then \
