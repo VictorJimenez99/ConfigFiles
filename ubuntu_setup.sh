@@ -43,7 +43,7 @@ sudo Rscript ./initial_config.R
 
 
 
-if ["$DOTNET_INSTALLATION" = true] 
+if (("$DOTNET_INSTALLATION" == true))
 then
     wget https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
