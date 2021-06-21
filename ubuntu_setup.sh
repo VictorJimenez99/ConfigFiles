@@ -2,10 +2,14 @@
 
 UBUNTU_VERSION=20.04
 
+# Global Flags
+DOTNET_INSTALLATION=true
+NVIDIA_INSTALLATION=true
+VSCODE_INSTALLATION=true
+
 CLANGD_PACKAGE=clangd-12
 JAVA_PACKAGE=openjdk-16-jdk
 
-DOTNET_INSTALLATION=true
 DOTNET_PACKAGE=dotnet-sdk-5.0
 DOTNET_RUNTIME_PACKAGE=aspnetcore-runtime-5.0
 
@@ -13,7 +17,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 
-sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish libsqlite3-dev sqlite3 r-base nvidia-cuda-toolkit maven -y
+sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish libsqlite3-dev sqlite3 r-base maven snapd -y
 
 
 sudo apt install libcurl4-openssl-dev libxml2-dev -y
@@ -46,6 +50,7 @@ sudo Rscript ./initial_config.R
 
 
 
+# DOTNET
 if (("$DOTNET_INSTALLATION" == true))
 then
     wget https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -59,6 +64,18 @@ then
     sudo apt install mono-complete -y
     sudo snap install rider --clasic
  
+fi
+
+# Nvidia
+if (("$NVIDIA_INSTALLATION" == true))
+then
+    sudo apt install nvidia-cuda-toolkit -y
+fi
+
+# VsCode
+if (("$VSCODE_INSTALLATION" == true))
+then
+    sudo snap install code --classic
 fi
 
 # Rust installation
