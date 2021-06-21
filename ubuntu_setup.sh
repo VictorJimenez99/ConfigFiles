@@ -41,9 +41,6 @@ If you want to change this message, you can overwrite it in ~/.config/fish/confi
 # R Config
 sudo Rscript ./initial_config.R
 
-# Rust installation
-# Rust installation needs user input and its not that big to be a problem 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 
 if ["$DOTNET_INSTALLATION" = true] 
@@ -61,6 +58,9 @@ then
  
 fi
 
+# Rust installation
+# Rust installation needs user input and its not that big to be a problem 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # After
 echo "READ BEFORE YOU GO"
