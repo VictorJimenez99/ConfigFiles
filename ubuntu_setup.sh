@@ -48,12 +48,12 @@ then
     wget https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     sudo apt install apt-transport-https -y
-    sudo apt update
+    sudo apt update -y
     sudo apt install -y $DOTNET_PACKAGE
     DOTNET_CLI_TELEMETRY_OPTOUT=1
     sudo apt install -y $DOTNET_RUNTIME_PACKAGE
-    sudo apt install mono-devel
-    sudo apt install mono-complete
+    sudo apt install mono-devel -y
+    sudo apt install mono-complete -y
     sudo snap install rider --clasic
  
 fi
