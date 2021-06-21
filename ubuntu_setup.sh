@@ -9,6 +9,9 @@ DOTNET_INSTALLATION=true
 DOTNET_PACKAGE=dotnet-sdk-5.0
 DOTNET_RUNTIME_PACKAGE=aspnetcore-runtime-5.0
 
+sudo apt update -y
+sudo apt upgrade -y
+
 
 sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish libsqlite3-dev sqlite3 r-base nvidia-cuda-toolkit maven -y
 
@@ -59,8 +62,7 @@ then
 fi
 
 # Rust installation
-# Rust installation needs user input and its not that big to be a problem 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s - -y
 
 # After
 echo "READ BEFORE YOU GO"
