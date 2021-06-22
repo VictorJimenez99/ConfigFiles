@@ -4,12 +4,16 @@ UBUNTU_VERSION=20.04
 
 # Global Flags
 DOTNET_INSTALLATION=true
-NVIDIA_INSTALLATION=true
-VSCODE_INSTALLATION=true
+NVIDIA_INSTALLATION=true #(nvidia cuda toolkit)
+VSCODE_INSTALLATION=true 
+SQLITE_INSTALLATION=true #(sqlite3 and dev)
+OPENBS_INSTALLATION=true #(OBS)
+R_BASE_INSTALLATION=true #(R)
 
+
+# Versioned packages
 CLANGD_PACKAGE=clangd-12
 JAVA_PACKAGE=openjdk-16-jdk
-
 DOTNET_PACKAGE=dotnet-sdk-5.0
 DOTNET_RUNTIME_PACKAGE=aspnetcore-runtime-5.0
 
@@ -17,7 +21,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 
-sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish libsqlite3-dev sqlite3 r-base maven snapd -y
+sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish maven snapd -y
 
 
 sudo apt install libcurl4-openssl-dev libxml2-dev -y
@@ -45,9 +49,12 @@ echo "set -g -x fish_greeting 'The fish Shell has been configured as your main s
 if you want to remove it you can use the command chsh -s /bin/bash.
 If you want to change this message, you can overwrite it in ~/.config/fish/config.fish'" > ~/.config/fish/config.fish
 
-# R Config
-sudo Rscript ./initial_config.R
-
+# R
+if (("$R_BASE_INSTALLATION" == true))
+then
+    sudo apt install r-base -y
+    sudo Rscript ./initial_config.R
+fi
 
 
 # DOTNET
@@ -72,10 +79,22 @@ then
     sudo apt install nvidia-cuda-toolkit -y
 fi
 
+# Sqlte
+if (("$SQLITE_INSTALLATION" == true))
+then
+    sudo apt install libsqlite3-dev sqlite3 -y
+fi
+
 # VsCode
 if (("$VSCODE_INSTALLATION" == true))
 then
     sudo snap install code --classic
+fi
+
+# OBS
+if (("$OPENBS_INSTALLATION" == true))
+then
+    sudo apt install obs-studio -y
 fi
 
 # Rust installation
