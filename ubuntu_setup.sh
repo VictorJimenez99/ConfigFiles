@@ -108,9 +108,13 @@ echo "You still need to install rstudio download the latest version at"
 echo "https://www.rstudio.com/products/rstudio/download/#download"
 echo "and use sudo apt install to set everything up"
 
-echo "in order to fix jetbrains problem with fish sh you need to go to File -> Settings -> Tools -> Terminal -> (uncheck) Shell Integration"
+echo "In order to fix jetbrains problem with fish sh you need to go to File -> Settings -> Tools -> Terminal -> (uncheck) Shell Integration"
 
-echo "Dont forget to update your nvidia drivers"
+echo "If you want to download STM's IDE for their microcontroller lineup head to "
+echo "https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-ides/stm32cubeide.html"
+echo "and download the most recent deb package"
+
+echo "Dont forget to update your nvidia drivers at software & updates -> additional drivers -> and choosing the (propietary, tested) driver"
 
 
 
