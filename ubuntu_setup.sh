@@ -21,10 +21,10 @@ sudo apt update -y
 sudo apt upgrade -y
 
 
-sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish maven snapd -y
+sudo apt install curl npm neovim vlc $JAVA_PACKAGE $CLANGD_PACKAGE fish maven snapd clangd-format -y
 
 
-sudo apt install libcurl4-openssl-dev libxml2-dev -y
+sudo apt install libcurl4-openssl-dev libxml2-dev libfontconfig-dev -y
 
 
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/$CLANGD_PACKAGE 100
