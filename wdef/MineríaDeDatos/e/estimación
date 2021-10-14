@@ -1,0 +1,68 @@
+
+# Índice
+
+- Inferencia Estadística
+- Estimación Punto
+- Intervalo de Certeza
+- Bibliografía
+
+# Inferencia Estadística
+
+Esta es una de las herramientas más utilizadas en la estimación y la predicción de variables 
+únicas. Consiste en métodos de pruebas de hipótesis, a partir, o basados en la información 
+obtenida de una muestra de la población. 
+
+# Estimación Punto
+
+Dada una estadística se puede definir la estimación punto como la mejor estimación de un 
+parámetro medible en la población como la media, la desviación estandar etc.
+
+# Intervalo de Certeza
+
+está dado por la formula: 
+    
+estimaciónPunto +- margenDeError
+
+donde el margen de error está dado por 
+    X̄ +- t_(α/2)*(s/√n) 
+
+y los simbolos de esta ecuación son:
+    X̄ Media
+    t_(α/2) La probabilidad de distribución en ese punto
+    s error estandar
+    n número de muestras
+
+  0.14 +-------------------------------------------------------------------+   
+       |                +              *****              +                |   
+       |                             ***   ***                     ******* |   
+  0.12 |-+                          **       **                          +-|   
+       |                           **         **                           |   
+       |                          *             *                          |   
+   0.1 |-+                       *               *                       +-|   
+       |                        **                *                        |   
+       |                       *                   *                       |   
+  0.08 |-+    |    α/2    |   *                     *   |    α/2    |    +-|   
+       |      +-----------+  **                     **  +-----------+      |   
+  0.06 |-+    |           | **                       ** |           |    +-|   
+       |      |            **                         **|           |      |   
+       |      |           **                           **           |      |   
+  0.04 |-+    |          **                             **          |    +-|   
+       |      |         **|              1-α            |**         |      |   
+       |      |       *** +-----------------------------+ ***       |      |   
+  0.02 |-+    |      **   |                             |   **      |    +-|   
+       |      |   ***     |                             |     ***   |      |   
+       |      *****     + |              +              | +     *****      |   
+     0 +-------------------------------------------------------------------+   
+                                         X̄                                 
+
+La mejor forma de reducir el margen de error y permitir así que sea más precisa la estimación 
+
+# Bibliografía
+[1] L. C. D. Larose D. T.,Data Mining and Predictive Analytics. Wiley, 2°ed. ed., 2015.
+
+
+
+
+
+
+
